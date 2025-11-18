@@ -10,32 +10,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="topbar">
       <!-- Title/subtitle intentionally removed -->
     </div>
 
     <nav class="main-nav" aria-label="Main navigation">
-      <div class="nav-left">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle navigation">☰</button>
+      <div class="nav-controls">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+
+        <!-- Language switcher moved next to the menu button (always visible area) -->
+        <div class="lang-switch" role="navigation" aria-label="Language switcher">
+          <button id="btn-sv" class="lang-btn" aria-pressed="false">SV</button>
+          <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
+        </div>
       </div>
 
-      <ul id="nav-list" role="menubar">
-        <li role="none"><a role="menuitem" href="#om-stugan" data-i18n="nav_about">About the cottage</a></li>
-        <li role="none"><a role="menuitem" href="#utcheckning" data-i18n="nav_checkout">Check-out</a></li>
-        <li role="none"><a role="menuitem" href="#reseguide" data-i18n="nav_guide">Travel guide</a></li>
-        <li role="none"><a role="menuitem" href="#kontakt" data-i18n="nav_contact">Contact</a></li>
-
-        <!-- Book button moved into the menu at the end -->
-        <li class="nav-book" role="none"><a role="menuitem" href="https://www.airbnb.com/rooms/XXXXX" class="btn-airbnb" target="_blank" rel="noopener" data-i18n="airbnb_book">Book on Airbnb</a></li>
+      <ul id="nav-list">
+        <li><a href="#om-stugan" data-i18n="nav_about">About the cottage</a></li>
+        <li><a href="#utcheckning" data-i18n="nav_checkout">Check-out</a></li>
+        <li><a href="#reseguide" data-i18n="nav_guide">Travel guide</a></li>
+        <li><a href="#kontakt" data-i18n="nav_contact">Contact</a></li>
       </ul>
-
-      <!-- Language switcher right-aligned next to the menu -->
-      <div class="lang-switch" role="navigation" aria-label="Language switcher">
-        <button id="btn-sv" class="lang-btn" aria-pressed="false">SV</button>
-        <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
-      </div>
     </nav>
+
+    <div class="hero" role="img" aria-label="Sea and cottage">
+      <div class="hero-content">
+        <h2 data-i18n="hero_title">A peaceful spot by the sea</h2>
+        <p data-i18n="hero_text">Enjoy sunrises, starry nights and short walks to the swimming spot.</p>
+        <div class="hero-buttons">
+          <!-- Contact button removed per request -->
+          <a href="https://www.airbnb.com/rooms/XXXXX" class="btn-airbnb" target="_blank" rel="noopener" data-i18n="airbnb_book">Book on Airbnb</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>

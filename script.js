@@ -2,14 +2,12 @@
 (function(){
   const translations = {
     en: {
-      site_title: "Welcome to our cottage in the Blekinge archipelago",
-      site_sub: "A charming fisherman's cottage with sea breeze and character.",
       nav_about: "About the cottage",
       nav_checkout: "Check-out",
       nav_guide: "Travel guide",
       nav_contact: "Contact",
-      hero_title: "Welcome to Utsiktsbacken on Sturkö",
-      hero_text: "Enjoy a peaceful spot by the sea with sunrises, starry nights and short walks to the Baltic Sea.",
+      hero_title: "A peaceful spot by the sea",
+      hero_text: "Enjoy sunrises, starry nights and short walks to the swimming spot.",
       airbnb_book: "Book on Airbnb",
       about_title: "About the cottage",
       about_text: "The cottage is an old fisherman's home with modern comforts. There's a sofa bed, kitchenette, toilet and a small deck.",
@@ -62,12 +60,6 @@
       city_marinmuseum_text: "[Add details here]",
       city_stadsvandring_label: "Stadsvandring",
       city_stadsvandring_text: "Guided or self-guided walks through Karlskrona's historic centre. [Add meeting points / tips]",
-      city_bjorkholmen_label: "Promenera på Björkholmen",
-      city_bjorkholmen_text: "[Add details here]",
-      city_brendaholm_label: "Brändaholm och Dragsö",
-      city_brendaholm_text: "[Add details here]",
-      city_tip_label: "Tip",
-      city_tip_text: "Take the boat from Sturkö to Karlskrona for a scenic route.",
       guide_near_title: "Near Karlskrona",
       near_aspo_label: "Aspö",
       near_aspo_text: "The only large island not connected by bridge. Ferry from Handelshamnen — frequent and free for foot, bike or car.",
@@ -75,40 +67,26 @@
       near_kristianopel_text: "[Add details here]",
       near_yttre_label: "Yttre skärgården",
       near_yttre_text: "Passenger ferry to outer islands — recommended: Stenshamn or Ungskär. Closest ferry stop: Brofästet on Senoren. Check timetables carefully.",
-      near_kungholm_label: "Kungholms fort",
-      near_kungholm_text: "[Add details here]",
-      near_barnens_label: "Barnens gård",
-      near_barnens_text: "Water park and outdoor playground — great for children aged ~5–12.",
       guide_food_title: "Food to try / Mat att testa",
       food_kalles_label: "Kalles kaviar med smör och knäckebröd",
       food_kalles_text: "Smoked cod roe in a tube — try it on crisp bread with butter.",
-      food_saltlakrits_label: "Saltlakrits",
-      food_saltlakrits_text: "[Add details or favourite shops here]",
-      food_sill_label: "Inlagd sill",
-      food_sill_text: "Pickled herring in many flavours — often eaten at holidays.",
       food_kroppkakor_label: "Kroppkakor",
       food_kroppkakor_text: "Potato dumplings filled with pork and onion — served with melted butter, cream and lingonberry jam.",
-      food_princess_label: "Prinsesstårta",
-      food_princess_text: "Sponge cake with custard, jam and whipped cream under green marzipan.",
-      food_rak_label: "Räkmacka",
-      food_rak_text: "Open sandwich with mayo, egg and lots of fresh shrimp.",
-      food_losgodis_label: "Lösgodis",
-      food_losgodis_text: "Pick-and-mix candy sold by weight — available across stores.",
+      footer_name: "The Cottage in the Blekinge archipelago",
       contact_title: "Contact",
       contact_text: "Have questions? Contact us:",
       phone_label: "Phone:",
       email_label: "Email:",
-      map_link: "View on map",
-      footer_name: "The Cottage in the Blekinge archipelago"
+      map_link: "View on map"
     },
     sv: {
-      // Keep UI translations, but the travel guide itself is intentionally unavailable in Swedish.
+      // Keep UI translations, but the travel guide is intentionally unavailable in Swedish.
       nav_about: "Om stugan",
       nav_checkout: "Utcheckning",
       nav_guide: "Reseguide",
       nav_contact: "Kontakt",
-      hero_title: "Välkommen till Utsiktsbacken på Sturkö",
-      hero_text: "Njut av en lugn plats vid havet med soluppgångar, stjärnklara kvällar och korta promenader till Blekinge skärgård.",
+      hero_title: "En lugn plats nära havet",
+      hero_text: "Njut av soluppgångar, stjärnklara kvällar och korta promenader till badplatsen.",
       airbnb_book: "Boka på Airbnb",
       about_title: "Om stugan",
       about_text: "Stugan är en gammal fiskarbostad med modern komfort. Här finns bäddsoffa, trinettkök, toalett och en liten altan.",
@@ -124,9 +102,7 @@
       checkout_2: "Släng sopor i tunnan vid infarten",
       checkout_3: "Sänk värmen till 15°C (termostaten vid dörren)",
       checkout_4: "Lägg nyckeln i den röda brevlådan",
-      // Swedish notice for the travel guide section
-      guide_unavailable_sv: "Reseguide på svenska finns för närvarande inte. Sätt språk till engelska för att se guidens innehåll.",
-      // Fallbacks for contact/footer
+      guide_unavailable_sv: "Reseguide på svenska finns för närvarande inte. Växla till engelska för att se guiden.",
       contact_title: "Kontakt",
       contact_text: "Har du frågor? Kontakta oss:",
       phone_label: "Telefon:",
@@ -155,11 +131,9 @@
     const guideUnavailable = document.getElementById('guide-unavailable');
 
     if (lang === 'sv') {
-      // hide English guide and show Swedish unavailable notice
       if (guideEnglish) guideEnglish.classList.add('hidden');
       if (guideUnavailable) guideUnavailable.classList.remove('hidden');
     } else {
-      // show English guide and hide the Swedish notice
       if (guideEnglish) guideEnglish.classList.remove('hidden');
       if (guideUnavailable) guideUnavailable.classList.add('hidden');
     }
@@ -228,10 +202,37 @@
     });
   };
 
+  // Persist checklist state to localStorage (nice-to-have)
+  const initChecklist = () => {
+    const items = document.querySelectorAll('.check-list input[type="checkbox"]');
+    items.forEach(input => {
+      const id = input.id;
+      const saved = localStorage.getItem(`chk_${id}`);
+      if (saved === 'true') input.checked = true;
+      input.addEventListener('change', () => {
+        localStorage.setItem(`chk_${id}`, input.checked ? 'true' : 'false');
+      });
+    });
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     setYear();
     initLang();
     initNav();
     initSmoothScroll();
+    initChecklist();
   });
+
+  // Expose changeLang for debugging in console if needed
+  window.changeLang = changeLang;
+
+  // Map marker helper:
+  // You can populate window.BAD_MAP_MARKERS in index.html before the Google Maps script loads.
+  // Example:
+  // window.BAD_MAP_MARKERS = [
+  //   { title: 'Senorens camping', lat: 56.16, lng: 15.58, description: 'Nice beach' },
+  //   { title: 'Senorens badplats', lat: 56.162, lng: 15.582 }
+  // ];
+  //
+  // initMap() is defined in index.html so Google Maps callback will find it.
 })();

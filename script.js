@@ -180,6 +180,7 @@
       toggle.setAttribute('aria-expanded', String(!expanded));
       navList.classList.toggle('show');
     });
+    // close menu on item click (mobile)
     navList.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         navList.classList.remove('show');
@@ -202,7 +203,7 @@
     });
   };
 
-  // Persist checklist state to localStorage (nice-to-have)
+  // Persist checklist state to localStorage
   const initChecklist = () => {
     const items = document.querySelectorAll('.check-list input[type="checkbox"]');
     items.forEach(input => {

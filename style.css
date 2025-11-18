@@ -42,17 +42,8 @@ body {
   padding:0.5rem;
 }
 
-.brand h1{
-  font-family: "Playfair Display", serif;
-  margin:0;
-  font-weight:600;
-  font-size:1.35rem;
-}
-.brand .subtitle{
-  margin:0.25rem 0 0;
-  color:var(--accent-3);
-  font-size:0.95rem;
-}
+/* Hide brand area since title/subtitle removed */
+.brand { display:none }
 
 /* Language switcher */
 .lang-switch{
@@ -76,6 +67,9 @@ body {
   border-color:transparent;
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
+
+/* Make sure language menu item doesn't break nav layout */
+.lang-menu { display:flex; align-items:center }
 
 /* Navigation */
 .main-nav{
@@ -151,16 +145,6 @@ body {
 }
 
 /* Buttons */
-.btn-primary{
-  display:inline-block;
-  background:#ffd7b3;
-  color:#2f3a31;
-  padding:0.6rem 1rem;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  box-shadow: 0 6px 18px rgba(255,160,50,0.12);
-}
 .btn-airbnb{
   display:inline-block;
   background:#ff5a5f;
@@ -206,6 +190,29 @@ main{
   border-bottom:none;
 }
 .muted{ color:var(--muted) }
+
+/* Checklist inputs */
+.check-list input[type="checkbox"] {
+  margin-right:0.6rem;
+  transform:translateY(2px);
+}
+
+/* Category and subcategory headings */
+.category-title { margin:0.35rem 0 0.6rem; color:var(--accent); font-size:1.05rem; }
+.travel-section h5 { margin:0; font-size:1rem; font-weight:700; }
+
+/* Map placeholder */
+.map-placeholder{
+  margin-top:0.8rem;
+  padding:1rem;
+  border-radius:8px;
+  background: linear-gradient(180deg,#f8fbfb,#fff);
+  border:1px dashed #e6efef;
+  color:var(--muted);
+}
+
+/* Hidden utility class */
+.hidden { display:none !important; }
 
 /* Contact card */
 .contact-card a{

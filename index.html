@@ -1,94 +1,100 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gäststuga i Blekinge skärgård</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gäststuga i Blekinge skärgård</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="site-header">
-        <div class="topbar">
-            <div class="brand">
-                <h1 data-i18n="site_title">Välkommen till vår stuga i Blekinge skärgård</h1>
-                <p class="subtitle" data-i18n="site_sub">En charmig fiskarstuga med själ och havsdoft.</p>
-            </div>
-            <div class="lang-switch">
-                <button id="btn-sv" class="lang-btn active" aria-pressed="true">SV</button>
-                <button id="btn-en" class="lang-btn" aria-pressed="false">EN</button>
-            </div>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="brand">
+        <h1 data-i18n="site_title">Welcome to our cottage in the Blekinge archipelago</h1>
+        <p class="subtitle" data-i18n="site_sub">A charming fisherman's cottage with sea breeze and character.</p>
+      </div>
+
+      <div class="lang-switch" role="navigation" aria-label="Language switcher">
+        <button id="btn-sv" class="lang-btn" aria-pressed="false">SV</button>
+        <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+      <ul id="nav-list">
+        <li><a href="#om-stugan" data-i18n="nav_about">About the cottage</a></li>
+        <li><a href="#utcheckning" data-i18n="nav_checkout">Check-out</a></li>
+        <li><a href="#reseguide" data-i18n="nav_guide">Travel guide</a></li>
+        <li><a href="#kontakt" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero" role="img" aria-label="Sea and cottage">
+      <div class="hero-content">
+        <h2 data-i18n="hero_title">A peaceful spot by the sea</h2>
+        <p data-i18n="hero_text">Enjoy sunrises, starry nights and short walks to the swimming spot.</p>
+        <div class="hero-buttons">
+          <a href="#kontakt" class="btn-primary" data-i18n="book_now">Book / Contact us</a>
+          <!-- Replace XXXXX with your Airbnb listing ID -->
+          <a href="https://www.airbnb.com/rooms/XXXXX" class="btn-airbnb" target="_blank" rel="noopener" data-i18n="airbnb_book">Book on Airbnb</a>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <nav class="main-nav" aria-label="Main navigation">
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
-            <ul id="nav-list">
-                <li><a href="#om-stugan" data-i18n="nav_about">Om stugan</a></li>
-                <li><a href="#utcheckning" data-i18n="nav_checkout">Utcheckning</a></li>
-                <li><a href="#reseguide" data-i18n="nav_guide">Reseguide</a></li>
-                <li><a href="#kontakt" data-i18n="nav_contact">Kontakt</a></li>
-            </ul>
-        </nav>
+  <main>
+    <section id="om-stugan" class="card">
+      <h3 data-i18n="about_title">About the cottage</h3>
+      <p data-i18n="about_text">The cottage is an old fisherman's home with modern comforts. There's a sofa bed, kitchenette, toilet and a small deck.</p>
+      <ul class="info-list">
+        <li><strong data-i18n="bed_label">Sofa bed:</strong> <span data-i18n="bed_text">Pull out the lower part and fold down the backrest.</span></li>
+        <li><strong data-i18n="tv_label">TV:</strong> <span data-i18n="tv_text">Press the red button on the remote. Choose HDMI1 for streaming.</span></li>
+        <li><strong data-i18n="wifi_label">Wi‑Fi:</strong> <span data-i18n="wifi_text">Network: "Stugan", Password: blekinge2024</span></li>
+      </ul>
+    </section>
 
-        <div class="hero">
-            <div class="hero-content">
-                <h2 data-i18n="hero_title">En lugn plats nära havet</h2>
-                <p data-i18n="hero_text">Njut av soluppgångar, stjärnklara kvällar och korta promenader till badplatsen.</p>
-                <a href="#kontakt" class="btn-primary" data-i18n="book_now">Boka / Kontakta oss</a>
-            </div>
-        </div>
-    </header>
+    <section id="utcheckning" class="card">
+      <h3 data-i18n="checkout_title">Check-out</h3>
+      <p data-i18n="checkout_intro">Before you leave, please:</p>
+      <ul class="check-list">
+        <li data-i18n="checkout_1">Wash dishes and do a light clean</li>
+        <li data-i18n="checkout_2">Dispose of rubbish in the bin by the driveway</li>
+        <li data-i18n="checkout_3">Lower the heat to 15°C (thermostat by the door)</li>
+        <li data-i18n="checkout_4">Leave the key in the red mailbox</li>
+      </ul>
+    </section>
 
-    <main>
-        <section id="om-stugan" class="card">
-            <h3 data-i18n="about_title">Om stugan</h3>
-            <p data-i18n="about_text">Stugan är en gammal fiskarbostad med modern komfort. Här finns bäddsoffa, trinettkök, toalett och en liten altan.</p>
-            <ul class="info-list">
-                <li><strong data-i18n="bed_label">Bäddsoffa:</strong> <span data-i18n="bed_text">Dra ut underdelen och fäll ner ryggstödet.</span></li>
-                <li><strong data-i18n="tv_label">TV:</strong> <span data-i18n="tv_text">Tryck på röd knapp på fjärrkontrollen. Välj HDMI1 för streaming.</span></li>
-                <li><strong data-i18n="wifi_label">Wi-Fi:</strong> <span data-i18n="wifi_text">Nätverk: "Stugan", Lösen: blekinge2024</span></li>
-            </ul>
-        </section>
+    <section id="reseguide" class="card">
+      <h3 data-i18n="guide_title">Travel guide</h3>
+      <p data-i18n="guide_intro">Explore the surroundings:</p>
+      <ul class="info-list">
+        <li><strong data-i18n="beach_label">Beach:</strong> <span data-i18n="beach_text">300 m below the cottage</span></li>
+        <li><strong data-i18n="cafe_label">Café Skärgården:</strong> <span data-i18n="cafe_text">open daily during summer</span></li>
+        <li><strong data-i18n="hike_label">Hiking:</strong> <span data-i18n="hike_text">Listerby nature reserve — 2 km away</span></li>
+        <li><strong data-i18n="boat_label">Boat rental:</strong> <span data-i18n="boat_text">Available in the harbour, 500 m</span></li>
+      </ul>
+    </section>
 
-        <section id="utcheckning" class="card">
-            <h3 data-i18n="checkout_title">Utcheckning</h3>
-            <p data-i18n="checkout_intro">Innan du lämnar, vänligen:</p>
-            <ul class="check-list">
-                <li data-i18n="checkout_1">Diska och städa ytorna lätt</li>
-                <li data-i18n="checkout_2">Släng sopor i tunnan vid infarten</li>
-                <li data-i18n="checkout_3">Sänk värmen till 15°C (termostaten vid dörren)</li>
-                <li data-i18n="checkout_4">Lägg nyckeln i den röda brevlådan</li>
-            </ul>
-        </section>
+    <section id="kontakt" class="card contact-card">
+      <h3 data-i18n="contact_title">Contact</h3>
+      <p data-i18n="contact_text">Have questions? Contact us:</p>
+      <ul class="contact-list">
+        <li><span class="muted" data-i18n="phone_label">Phone:</span> <a href="tel:+46701234567">070-123 45 67</a></li>
+        <li><span class="muted" data-i18n="email_label">Email:</span> <a href="mailto:stugan@example.com">stugan@example.com</a></li>
+        <li><a href="https://maps.google.com" target="_blank" rel="noopener" data-i18n="map_link">View on map</a></li>
+        <li><a href="https://www.airbnb.com/rooms/XXXXX" target="_blank" rel="noopener" data-i18n="airbnb_book">Book on Airbnb</a></li>
+      </ul>
+    </section>
+  </main>
 
-        <section id="reseguide" class="card">
-            <h3 data-i18n="guide_title">Reseguide</h3>
-            <p data-i18n="guide_intro">Utforska omgivningen:</p>
-            <ul class="info-list">
-                <li><strong data-i18n="beach_label">Badplats:</strong> <span data-i18n="beach_text">300 m nedanför stugan</span></li>
-                <li><strong data-i18n="cafe_label">Café Skärgården:</strong> <span data-i18n="cafe_text">öppet dagligen sommartid</span></li>
-                <li><strong data-i18n="hike_label">Vandring:</strong> <span data-i18n="hike_text">Listerby naturreservat – 2 km bort</span></li>
-                <li><strong data-i18n="boat_label">Båtuthyrning:</strong> <span data-i18n="boat_text">Finns i hamnen, 500 m</span></li>
-            </ul>
-        </section>
+  <footer>
+    <p>&copy; <span id="year">2025</span> <span data-i18n="footer_name">The Cottage in the Blekinge archipelago</span></p>
+  </footer>
 
-        <section id="kontakt" class="card contact-card">
-            <h3 data-i18n="contact_title">Kontakt</h3>
-            <p data-i18n="contact_text">Har du frågor? Kontakta oss:</p>
-            <ul class="contact-list">
-                <li><span class="muted" data-i18n="phone_label">Telefon:</span> <a href="tel:+46701234567">070-123 45 67</a></li>
-                <li><span class="muted" data-i18n="email_label">E-post:</span> <a href="mailto:stugan@example.com">stugan@example.com</a></li>
-                <li><a href="https://maps.google.com" target="_blank" rel="noopener" data-i18n="map_link">Visa på karta</a></li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; <span id="year">2025</span> <span data-i18n="footer_name">Stugan i Blekinge skärgård</span></p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

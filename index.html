@@ -12,15 +12,8 @@
 <body>
   <header class="site-header">
     <div class="topbar">
-      <div class="brand">
-        <h1 data-i18n="site_title">Welcome to our cottage in the Blekinge archipelago</h1>
-        <p class="subtitle" data-i18n="site_sub">A charming fisherman's cottage with sea breeze and character.</p>
-      </div>
-
-      <div class="lang-switch" role="navigation" aria-label="Language switcher">
-        <button id="btn-sv" class="lang-btn" aria-pressed="false">SV</button>
-        <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
-      </div>
+      <!-- Site title/subtitle removed as requested -->
+      <!-- Language switch moved into the navigation menu (see nav below) -->
     </div>
 
     <nav class="main-nav" aria-label="Main navigation">
@@ -30,6 +23,14 @@
         <li><a href="#utcheckning" data-i18n="nav_checkout">Check-out</a></li>
         <li><a href="#reseguide" data-i18n="nav_guide">Travel guide</a></li>
         <li><a href="#kontakt" data-i18n="nav_contact">Contact</a></li>
+
+        <!-- Language switcher moved here so it appears inside the menu -->
+        <li class="lang-menu">
+          <div class="lang-switch" role="navigation" aria-label="Language switcher">
+            <button id="btn-sv" class="lang-btn" aria-pressed="false">SV</button>
+            <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
+          </div>
+        </li>
       </ul>
     </nav>
 
@@ -38,7 +39,7 @@
         <h2 data-i18n="hero_title">A peaceful spot by the sea</h2>
         <p data-i18n="hero_text">Enjoy sunrises, starry nights and short walks to the swimming spot.</p>
         <div class="hero-buttons">
-          <a href="#kontakt" class="btn-primary" data-i18n="book_now">Book / Contact us</a>
+          <!-- 'Contact us' button removed as requested -->
           <!-- Replace XXXXX with your Airbnb listing ID -->
           <a href="https://www.airbnb.com/rooms/XXXXX" class="btn-airbnb" target="_blank" rel="noopener" data-i18n="airbnb_book">Book on Airbnb</a>
         </div>
@@ -60,159 +61,210 @@
     <section id="utcheckning" class="card">
       <h3 data-i18n="checkout_title">Check-out</h3>
       <p data-i18n="checkout_intro">Before you leave, please:</p>
-      <ul class="check-list">
-        <li data-i18n="checkout_1">Wash dishes and do a light clean</li>
-        <li data-i18n="checkout_2">Dispose of rubbish in the bin by the driveway</li>
-        <li data-i18n="checkout_3">Lower the heat to 15°C (thermostat by the door)</li>
-        <li data-i18n="checkout_4">Leave the key in the red mailbox</li>
+
+      <!-- Clickable checklist -->
+      <ul class="check-list" role="list">
+        <li>
+          <label>
+            <input type="checkbox" id="chk-clean" />
+            <span data-i18n="checkout_1">Wash dishes and do a light clean</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" id="chk-rubbish" />
+            <span data-i18n="checkout_2">Dispose of rubbish in the bin by the driveway</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" id="chk-heat" />
+            <span data-i18n="checkout_3">Lower the heat to 15°C (thermostat by the door)</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" id="chk-key" />
+            <span data-i18n="checkout_4">Leave the key in the red mailbox</span>
+          </label>
+        </li>
       </ul>
     </section>
 
-    <!-- Updated travel guide: replaced previous content with structured sections and placeholders.
-         All text pieces use data-i18n keys so you can edit translations in script.js later. -->
+    <!-- Travel guide: English-only section with clear category headers.
+         If Swedish is selected the script will hide the English content and show a Swedish notice. -->
     <section id="reseguide" class="card">
       <h3 data-i18n="guide_title">Travel guide</h3>
-      <p data-i18n="guide_intro">Explore the surroundings:</p>
 
-      <div class="travel-sections">
+      <!-- Message shown when Swedish is selected. Hidden by default. -->
+      <div id="guide-unavailable" class="hidden" aria-live="polite" data-i18n="guide_unavailable_sv">
+        Svenska versionen av reseguiden finns för närvarande inte. Se gärna den engelska guiden nedan eller växla till engelska.
+      </div>
+
+      <!-- English guide content -->
+      <div id="guide-english">
+        <p data-i18n="guide_intro">Explore the surroundings:</p>
+
+        <!-- Clear categories and subcategories -->
         <div class="travel-section">
-          <h4 data-i18n="guide_walk_title">Within walking distance</h4>
+          <h4 class="category-title" data-i18n="guide_walk_title">Within walking distance</h4>
           <ul class="info-list">
             <li>
-              <strong data-i18n="walk_promenadrunda_label">Promenadrunda</strong>
+              <h5 data-i18n="walk_promenadrunda_label">Promenadrunda</h5>
               <p data-i18n="walk_promenadrunda_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="walk_runsten_label">Runsten</strong>
+              <h5 data-i18n="walk_runsten_label">Runsten</h5>
               <p data-i18n="walk_runsten_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="walk_vastra_label">Västra skällöns naturreservat</strong>
+              <h5 data-i18n="walk_vastra_label">Västra skällöns naturreservat</h5>
               <p data-i18n="walk_vastra_text">[Add details here]</p>
             </li>
           </ul>
         </div>
 
         <div class="travel-section">
-          <h4 data-i18n="guide_bike_title">Within biking distance</h4>
+          <h4 class="category-title" data-i18n="guide_bike_title">Within biking distance</h4>
           <ul class="info-list">
             <li>
-              <strong data-i18n="bike_andrens_label">Andréns bageri</strong>
+              <h5 data-i18n="bike_andrens_label">Andréns bageri</h5>
               <p data-i18n="bike_andrens_text">A bakery where barely anything has changed for the last 100 years, even the owners are the same family now as when they started. Bread and sweet treats, and children always get a free cinnamon bun with every purchase!</p>
             </li>
             <li>
-              <strong data-i18n="bike_uttorp_label">Uttorps naturreservat</strong>
+              <h5 data-i18n="bike_uttorp_label">Uttorps naturreservat</h5>
               <p data-i18n="bike_uttorp_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="bike_kvarnen_label">Kvarnen</strong>
-              <p data-i18n="bike_kvarnen_text">Once an active windmill for making flour, now renovated to a restaurant and café. You can even climb all the way to the top of the windmill for views over the area. Enjoy local dishes like kroppkakor, or take a pizza to bring home.</p>
+              <h5 data-i18n="bike_kvarnen_label">Kvarnen</h5>
+              <p data-i18n="bike_kvarnen_text">Once an active windmill for making flour, now renovated to a restaurant and café. You can climb to the top for views — try local dishes like kroppkakor or take a pizza to bring home.</p>
             </li>
             <li>
-              <strong data-i18n="bike_skargardskraft_label">Skärgårdskraft</strong>
-              <p data-i18n="bike_skargardskraft_text">Museum, second hand shopping, café and local crafts all in the same place! Learn more about Tjurkö's history of stonecutting — a massive local industry for centuries.</p>
+              <h5 data-i18n="bike_skargardskraft_label">Skärgårdskraft</h5>
+              <p data-i18n="bike_skargardskraft_text">Museum, second hand shopping, café and local crafts. Learn about Tjurkö's long history of stonecutting.</p>
             </li>
             <li>
-              <strong data-i18n="bike_badplatser_label">Badplatser</strong>
-              <p data-i18n="bike_badplatser_text">Senorens camping • Senorens badplats • Hängnan på Tjurkö • Sturkö camping</p>
-            </li>
-            <li>
-              <strong data-i18n="bike_bibbis_label">Bibbis skärgårdscafé</strong>
-              <p data-i18n="bike_bibbis_text">Summer café serving classic Swedish treats and lighter foods - and even a wine made locally on Tjurkö. The climate here is ideal for growing grapes.</p>
+              <h5 data-i18n="bike_bibbis_label">Bibbis skärgårdscafé</h5>
+              <p data-i18n="bike_bibbis_text">Summer café serving classic Swedish treats and lighter foods — and even a wine made locally on Tjurkö.</p>
             </li>
           </ul>
         </div>
 
-        <div class="travel-section">
-          <h4 data-i18n="guide_city_title">In the city of Karlskrona</h4>
+        <!-- Badplatser is now its own top-level category with a map placeholder for pins -->
+        <div class="travel-section" id="badplatser-section">
+          <h4 class="category-title" data-i18n="badplatser_title">Badplatser</h4>
+          <p data-i18n="badplatser_intro">Beach/swimming locations — map with pins will be added here (coordinates editable later).</p>
           <ul class="info-list">
             <li>
-              <strong data-i18n="city_glassiaren_label">Glassiären</strong>
+              <h5 data-i18n="bad_senorens_camping">Senorens camping</h5>
+              <p data-i18n="bad_senorens_text">[Add details here]</p>
+            </li>
+            <li>
+              <h5 data-i18n="bad_senorens_badplats">Senorens badplats</h5>
+              <p data-i18n="bad_senorens_badplats_text">[Add details here]</p>
+            </li>
+            <li>
+              <h5 data-i18n="bad_hangnan">Hängnan på Tjurkö</h5>
+              <p data-i18n="bad_hangnan_text">[Add details here]</p>
+            </li>
+            <li>
+              <h5 data-i18n="bad_sturko">Sturkö camping</h5>
+              <p data-i18n="bad_sturko_text">[Add details here]</p>
+            </li>
+          </ul>
+
+          <!-- Map placeholder: you'll embed Google Maps and add pins/coordinates here later -->
+          <div id="bad-map" class="map-placeholder" aria-hidden="true">
+            Map placeholder — add Google Maps embed and pins here. (I will edit coordinates later.)
+          </div>
+        </div>
+
+        <div class="travel-section">
+          <h4 class="category-title" data-i18n="guide_city_title">In the city of Karlskrona</h4>
+          <ul class="info-list">
+            <li>
+              <h5 data-i18n="city_glassiaren_label">Glassiären</h5>
               <p data-i18n="city_glassiaren_text">Ice cream shop known for generous portions. Expect lines on hot summer days.</p>
             </li>
             <li>
-              <strong data-i18n="city_marinmuseum_label">Marinmuseum</strong>
+              <h5 data-i18n="city_marinmuseum_label">Marinmuseum</h5>
               <p data-i18n="city_marinmuseum_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="city_stadsvandring_label">Stadsvandring</strong>
+              <h5 data-i18n="city_stadsvandring_label">Stadsvandring</h5>
               <p data-i18n="city_stadsvandring_text">Guided or self-guided walks through Karlskrona's historic centre. [Add meeting points / tips]</p>
             </li>
             <li>
-              <strong data-i18n="city_bjorkholmen_label">Promenera på Björkholmen</strong>
+              <h5 data-i18n="city_bjorkholmen_label">Promenera på Björkholmen</h5>
               <p data-i18n="city_bjorkholmen_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="city_brendaholm_label">Brändaholm och Dragsö</strong>
+              <h5 data-i18n="city_brendaholm_label">Brändaholm och Dragsö</h5>
               <p data-i18n="city_brendaholm_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="city_tip_label">Tip</strong>
+              <h5 data-i18n="city_tip_label">Tip</h5>
               <p data-i18n="city_tip_text">Take the boat from Sturkö to Karlskrona for a scenic route.</p>
             </li>
           </ul>
         </div>
 
         <div class="travel-section">
-          <h4 data-i18n="guide_near_title">Near Karlskrona</h4>
+          <h4 class="category-title" data-i18n="guide_near_title">Near Karlskrona</h4>
           <ul class="info-list">
             <li>
-              <strong data-i18n="near_aspo_label">Aspö</strong>
-              <p data-i18n="near_aspo_text">The only large island in the archipelago not connected by bridge. Ferry from Handelshamnen — frequent crossings, free for foot, bike or car.</p>
+              <h5 data-i18n="near_aspo_label">Aspö</h5>
+              <p data-i18n="near_aspo_text">The only large island not connected by bridge. Ferry from Handelshamnen — frequent and free for foot, bike or car.</p>
             </li>
             <li>
-              <strong data-i18n="near_kristianopel_label">Kristianopel</strong>
+              <h5 data-i18n="near_kristianopel_label">Kristianopel</h5>
               <p data-i18n="near_kristianopel_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="near_yttre_label">Yttre skärgården</strong>
-              <p data-i18n="near_yttre_text">A passenger ferry goes to the outer islands (sparse population, no car traffic). Recommended: Stenshamn (connected to Ytterön) or Ungskär. Closest ferry stop: Brofästet on Senoren — check timetables carefully.</p>
+              <h5 data-i18n="near_yttre_label">Yttre skärgården</h5>
+              <p data-i18n="near_yttre_text">Passenger ferry to the outer islands — recommended: Stenshamn or Ungskär. Closest ferry stop: Brofästet on Senoren. Check timetables carefully.</p>
             </li>
             <li>
-              <strong data-i18n="near_kungholm_label">Kungholms fort</strong>
+              <h5 data-i18n="near_kungholm_label">Kungholms fort</h5>
               <p data-i18n="near_kungholm_text">[Add details here]</p>
             </li>
             <li>
-              <strong data-i18n="near_barnens_label">Barnens gård</strong>
-              <p data-i18n="near_barnens_text">Water park and outdoor playground loved by local children for generations — best for ages ~5–12.</p>
+              <h5 data-i18n="near_barnens_label">Barnens gård</h5>
+              <p data-i18n="near_barnens_text">Water park and outdoor playground — great for children aged ~5–12.</p>
             </li>
           </ul>
         </div>
 
         <div class="travel-section">
-          <h4 data-i18n="guide_food_title">Food to try / Mat att testa</h4>
+          <h4 class="category-title" data-i18n="guide_food_title">Food to try / Mat att testa</h4>
           <ul class="info-list">
             <li>
-              <strong data-i18n="food_kalles_label">Kalles kaviar med smör och knäckebröd</strong>
-              <p data-i18n="food_kalles_text">Smoked cod roe in a tube — try it on crisp bread with butter. Many Swedes love or hate it; it's a must-try if you want to taste local flavours.</p>
+              <h5 data-i18n="food_kalles_label">Kalles kaviar med smör och knäckebröd</h5>
+              <p data-i18n="food_kalles_text">Smoked cod roe in a tube — try it on crisp bread with butter.</p>
             </li>
             <li>
-              <strong data-i18n="food_saltlakrits_label">Saltlakrits</strong>
+              <h5 data-i18n="food_saltlakrits_label">Saltlakrits</h5>
               <p data-i18n="food_saltlakrits_text">[Add details or favourite shops here]</p>
             </li>
             <li>
-              <strong data-i18n="food_sill_label">Inlagd sill</strong>
-              <p data-i18n="food_sill_text">Pickled herring in many flavours — traditionally eaten at Christmas, Midsummer and Easter.</p>
+              <h5 data-i18n="food_sill_label">Inlagd sill</h5>
+              <p data-i18n="food_sill_text">Pickled herring in many flavours — often eaten at holidays.</p>
             </li>
             <li>
-              <strong data-i18n="food_lax_label">Kallrökt lax / Gravad lax</strong>
-              <p data-i18n="food_lax_text">[Add details here]</p>
+              <h5 data-i18n="food_kroppkakor_label">Kroppkakor</h5>
+              <p data-i18n="food_kroppkakor_text">Potato dumplings filled with pork and onion — served with melted butter, cream and lingonberry jam.</p>
             </li>
             <li>
-              <strong data-i18n="food_kroppkakor_label">Kroppkakor</strong>
-              <p data-i18n="food_kroppkakor_text">Potato dumplings filled with pork and onion — served with melted butter, cream and lingonberry jam. A regional favourite (Blekinge / Småland / Öland debates welcome!).</p>
+              <h5 data-i18n="food_princess_label">Prinsesstårta</h5>
+              <p data-i18n="food_princess_text">Sponge cake with custard, jam and whipped cream under green marzipan.</p>
             </li>
             <li>
-              <strong data-i18n="food_princess_label">Prinsesstårta</strong>
-              <p data-i18n="food_princess_text">Sponge cake with custard, jam and whipped cream under a thin green marzipan layer — a very Swedish classic.</p>
+              <h5 data-i18n="food_rak_label">Räkmacka</h5>
+              <p data-i18n="food_rak_text">Open sandwich with mayo, egg and lots of fresh shrimp — often finished with lemon and dill.</p>
             </li>
             <li>
-              <strong data-i18n="food_rak_label">Räkmacka</strong>
-              <p data-i18n="food_rak_text">Open sandwich with mayo, egg and a generous pile of shrimp — often finished with lemon, cucumber and dill.</p>
-            </li>
-            <li>
-              <strong data-i18n="food_losgodis_label">Lösgodis</strong>
-              <p data-i18n="food_losgodis_text">Pick-and-mix candy sold by weight — available at most grocery stores and stations. Pick what you like and have it weighed at the checkout.</p>
+              <h5 data-i18n="food_losgodis_label">Lösgodis</h5>
+              <p data-i18n="food_losgodis_text">Pick-and-mix candy sold by weight — available across stores.</p>
             </li>
           </ul>
         </div>

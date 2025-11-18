@@ -68,15 +68,155 @@
       </ul>
     </section>
 
+    <!-- Updated travel guide: replaced previous content with structured sections and placeholders.
+         All text pieces use data-i18n keys so you can edit translations in script.js later. -->
     <section id="reseguide" class="card">
       <h3 data-i18n="guide_title">Travel guide</h3>
       <p data-i18n="guide_intro">Explore the surroundings:</p>
-      <ul class="info-list">
-        <li><strong data-i18n="beach_label">Beach:</strong> <span data-i18n="beach_text">300 m below the cottage</span></li>
-        <li><strong data-i18n="cafe_label">Café Skärgården:</strong> <span data-i18n="cafe_text">open daily during summer</span></li>
-        <li><strong data-i18n="hike_label">Hiking:</strong> <span data-i18n="hike_text">Listerby nature reserve — 2 km away</span></li>
-        <li><strong data-i18n="boat_label">Boat rental:</strong> <span data-i18n="boat_text">Available in the harbour, 500 m</span></li>
-      </ul>
+
+      <div class="travel-sections">
+        <div class="travel-section">
+          <h4 data-i18n="guide_walk_title">Within walking distance</h4>
+          <ul class="info-list">
+            <li>
+              <strong data-i18n="walk_promenadrunda_label">Promenadrunda</strong>
+              <p data-i18n="walk_promenadrunda_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="walk_runsten_label">Runsten</strong>
+              <p data-i18n="walk_runsten_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="walk_vastra_label">Västra skällöns naturreservat</strong>
+              <p data-i18n="walk_vastra_text">[Add details here]</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="travel-section">
+          <h4 data-i18n="guide_bike_title">Within biking distance</h4>
+          <ul class="info-list">
+            <li>
+              <strong data-i18n="bike_andrens_label">Andréns bageri</strong>
+              <p data-i18n="bike_andrens_text">A bakery where barely anything has changed for the last 100 years, even the owners are the same family now as when they started. Bread and sweet treats, and children always get a free cinnamon bun with every purchase!</p>
+            </li>
+            <li>
+              <strong data-i18n="bike_uttorp_label">Uttorps naturreservat</strong>
+              <p data-i18n="bike_uttorp_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="bike_kvarnen_label">Kvarnen</strong>
+              <p data-i18n="bike_kvarnen_text">Once an active windmill for making flour, now renovated to a restaurant and café. You can even climb all the way to the top of the windmill for views over the area. Enjoy local dishes like kroppkakor, or take a pizza to bring home.</p>
+            </li>
+            <li>
+              <strong data-i18n="bike_skargardskraft_label">Skärgårdskraft</strong>
+              <p data-i18n="bike_skargardskraft_text">Museum, second hand shopping, café and local crafts all in the same place! Learn more about Tjurkö's history of stonecutting — a massive local industry for centuries.</p>
+            </li>
+            <li>
+              <strong data-i18n="bike_badplatser_label">Badplatser</strong>
+              <p data-i18n="bike_badplatser_text">Senorens camping • Senorens badplats • Hängnan på Tjurkö • Sturkö camping</p>
+            </li>
+            <li>
+              <strong data-i18n="bike_bibbis_label">Bibbis skärgårdscafé</strong>
+              <p data-i18n="bike_bibbis_text">Summer café serving classic Swedish treats and lighter foods - and even a wine made locally on Tjurkö. The climate here is ideal for growing grapes.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="travel-section">
+          <h4 data-i18n="guide_city_title">In the city of Karlskrona</h4>
+          <ul class="info-list">
+            <li>
+              <strong data-i18n="city_glassiaren_label">Glassiären</strong>
+              <p data-i18n="city_glassiaren_text">Ice cream shop known for generous portions. Expect lines on hot summer days.</p>
+            </li>
+            <li>
+              <strong data-i18n="city_marinmuseum_label">Marinmuseum</strong>
+              <p data-i18n="city_marinmuseum_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="city_stadsvandring_label">Stadsvandring</strong>
+              <p data-i18n="city_stadsvandring_text">Guided or self-guided walks through Karlskrona's historic centre. [Add meeting points / tips]</p>
+            </li>
+            <li>
+              <strong data-i18n="city_bjorkholmen_label">Promenera på Björkholmen</strong>
+              <p data-i18n="city_bjorkholmen_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="city_brendaholm_label">Brändaholm och Dragsö</strong>
+              <p data-i18n="city_brendaholm_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="city_tip_label">Tip</strong>
+              <p data-i18n="city_tip_text">Take the boat from Sturkö to Karlskrona for a scenic route.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="travel-section">
+          <h4 data-i18n="guide_near_title">Near Karlskrona</h4>
+          <ul class="info-list">
+            <li>
+              <strong data-i18n="near_aspo_label">Aspö</strong>
+              <p data-i18n="near_aspo_text">The only large island in the archipelago not connected by bridge. Ferry from Handelshamnen — frequent crossings, free for foot, bike or car.</p>
+            </li>
+            <li>
+              <strong data-i18n="near_kristianopel_label">Kristianopel</strong>
+              <p data-i18n="near_kristianopel_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="near_yttre_label">Yttre skärgården</strong>
+              <p data-i18n="near_yttre_text">A passenger ferry goes to the outer islands (sparse population, no car traffic). Recommended: Stenshamn (connected to Ytterön) or Ungskär. Closest ferry stop: Brofästet on Senoren — check timetables carefully.</p>
+            </li>
+            <li>
+              <strong data-i18n="near_kungholm_label">Kungholms fort</strong>
+              <p data-i18n="near_kungholm_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="near_barnens_label">Barnens gård</strong>
+              <p data-i18n="near_barnens_text">Water park and outdoor playground loved by local children for generations — best for ages ~5–12.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="travel-section">
+          <h4 data-i18n="guide_food_title">Food to try / Mat att testa</h4>
+          <ul class="info-list">
+            <li>
+              <strong data-i18n="food_kalles_label">Kalles kaviar med smör och knäckebröd</strong>
+              <p data-i18n="food_kalles_text">Smoked cod roe in a tube — try it on crisp bread with butter. Many Swedes love or hate it; it's a must-try if you want to taste local flavours.</p>
+            </li>
+            <li>
+              <strong data-i18n="food_saltlakrits_label">Saltlakrits</strong>
+              <p data-i18n="food_saltlakrits_text">[Add details or favourite shops here]</p>
+            </li>
+            <li>
+              <strong data-i18n="food_sill_label">Inlagd sill</strong>
+              <p data-i18n="food_sill_text">Pickled herring in many flavours — traditionally eaten at Christmas, Midsummer and Easter.</p>
+            </li>
+            <li>
+              <strong data-i18n="food_lax_label">Kallrökt lax / Gravad lax</strong>
+              <p data-i18n="food_lax_text">[Add details here]</p>
+            </li>
+            <li>
+              <strong data-i18n="food_kroppkakor_label">Kroppkakor</strong>
+              <p data-i18n="food_kroppkakor_text">Potato dumplings filled with pork and onion — served with melted butter, cream and lingonberry jam. A regional favourite (Blekinge / Småland / Öland debates welcome!).</p>
+            </li>
+            <li>
+              <strong data-i18n="food_princess_label">Prinsesstårta</strong>
+              <p data-i18n="food_princess_text">Sponge cake with custard, jam and whipped cream under a thin green marzipan layer — a very Swedish classic.</p>
+            </li>
+            <li>
+              <strong data-i18n="food_rak_label">Räkmacka</strong>
+              <p data-i18n="food_rak_text">Open sandwich with mayo, egg and a generous pile of shrimp — often finished with lemon, cucumber and dill.</p>
+            </li>
+            <li>
+              <strong data-i18n="food_losgodis_label">Lösgodis</strong>
+              <p data-i18n="food_losgodis_text">Pick-and-mix candy sold by weight — available at most grocery stores and stations. Pick what you like and have it weighed at the checkout.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="kontakt" class="card contact-card">

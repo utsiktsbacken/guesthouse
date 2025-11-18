@@ -30,6 +30,11 @@ body {
   color: #fff;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+  /* Lock header to top so the menu is always visible */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .topbar {
@@ -45,6 +50,13 @@ body {
 /* Hide brand area since title/subtitle removed */
 .brand { display:none }
 
+/* Nav controls (menu button + language) */
+.nav-controls {
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+}
+
 /* Language switcher */
 .lang-switch{
   display:flex;
@@ -54,7 +66,7 @@ body {
   background:transparent;
   border:1px solid rgba(255,255,255,0.18);
   color:#fff;
-  padding:0.4rem 0.6rem;
+  padding:0.35rem 0.55rem;
   border-radius:8px;
   cursor:pointer;
   font-weight:600;
@@ -67,9 +79,6 @@ body {
   border-color:transparent;
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
-
-/* Make sure language menu item doesn't break nav layout */
-.lang-menu { display:flex; align-items:center }
 
 /* Navigation */
 .main-nav{
@@ -197,9 +206,25 @@ main{
   transform:translateY(2px);
 }
 
-/* Category and subcategory headings */
+/* Category title */
 .category-title { margin:0.35rem 0 0.6rem; color:var(--accent); font-size:1.05rem; }
-.travel-section h5 { margin:0; font-size:1rem; font-weight:700; }
+
+/* Subcards: cards within the travel guide to separate subcategories */
+.subcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.6rem;
+}
+.subcard {
+  background: linear-gradient(180deg,#fff,#fbffff);
+  border-radius:10px;
+  padding:0.9rem;
+  box-shadow: 0 6px 16px rgba(45,93,99,0.06);
+  border: 1px solid rgba(60,80,82,0.04);
+}
+.subcard h5 { margin: 0 0 0.4rem; font-size:1rem; color:var(--accent); }
+.subcard p { margin:0; color:#284041; }
 
 /* Map placeholder */
 .map-placeholder{
@@ -209,6 +234,7 @@ main{
   background: linear-gradient(180deg,#f8fbfb,#fff);
   border:1px dashed #e6efef;
   color:var(--muted);
+  min-height:260px;
 }
 
 /* Hidden utility class */
@@ -242,5 +268,8 @@ footer{
   #nav-list{ display:none; flex-direction:column; gap:0; background:transparent; margin-top:0.6rem }
   #nav-list.show{ display:flex; }
   #nav-list li a{ padding:0.6rem 0; display:block; width:100% }
+
+  /* Ensure nav-controls remain visible on small screens */
+  .nav-controls { position: relative; z-index: 1001; }
   .hero{ padding:1rem }
 }

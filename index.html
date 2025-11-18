@@ -12,35 +12,34 @@
 <body>
   <header class="site-header">
     <div class="topbar">
-      <!-- Site title/subtitle removed as requested -->
-      <!-- Language switch moved into the navigation menu (see nav below) -->
+      <!-- Title/subtitle intentionally removed -->
     </div>
 
     <nav class="main-nav" aria-label="Main navigation">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+      <div class="nav-controls">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+
+        <!-- Language switcher moved next to the menu button (always visible area) -->
+        <div class="lang-switch" role="navigation" aria-label="Language switcher">
+          <button id="btn-sv" class="lang-btn" aria-pressed="false">SV</button>
+          <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
+        </div>
+      </div>
+
       <ul id="nav-list">
         <li><a href="#om-stugan" data-i18n="nav_about">About the cottage</a></li>
         <li><a href="#utcheckning" data-i18n="nav_checkout">Check-out</a></li>
         <li><a href="#reseguide" data-i18n="nav_guide">Travel guide</a></li>
         <li><a href="#kontakt" data-i18n="nav_contact">Contact</a></li>
-
-        <!-- Language switcher moved here so it appears inside the menu -->
-        <li class="lang-menu">
-          <div class="lang-switch" role="navigation" aria-label="Language switcher">
-            <button id="btn-sv" class="lang-btn" aria-pressed="false">SV</button>
-            <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
-          </div>
-        </li>
       </ul>
     </nav>
 
     <div class="hero" role="img" aria-label="Sea and cottage">
       <div class="hero-content">
-        <h2 data-i18n="hero_title">Welcome to Utsiktsbacken on Sturkö</h2>
-        <p data-i18n="hero_text">Enjoy a peaceful spot by the sea with sunrises, starry nights and short walks to the Baltic Sea.</p>
+        <h2 data-i18n="hero_title">A peaceful spot by the sea</h2>
+        <p data-i18n="hero_text">Enjoy sunrises, starry nights and short walks to the swimming spot.</p>
         <div class="hero-buttons">
-          <!-- 'Contact us' button removed as requested -->
-          <!-- Replace XXXXX with your Airbnb listing ID -->
+          <!-- Contact button removed per request -->
           <a href="https://www.airbnb.com/rooms/XXXXX" class="btn-airbnb" target="_blank" rel="noopener" data-i18n="airbnb_book">Book on Airbnb</a>
         </div>
       </div>
@@ -91,183 +90,159 @@
       </ul>
     </section>
 
-    <!-- Travel guide: English-only section with clear category headers.
-         If Swedish is selected the script will hide the English content and show a Swedish notice. -->
+    <!-- Travel guide -->
     <section id="reseguide" class="card">
       <h3 data-i18n="guide_title">Travel guide</h3>
 
-      <!-- Message shown when Swedish is selected. Hidden by default. -->
+      <!-- Swedish unavailable notice -->
       <div id="guide-unavailable" class="hidden" aria-live="polite" data-i18n="guide_unavailable_sv">
-        Svenska versionen av reseguiden finns för närvarande inte. Se gärna den engelska guiden nedan eller växla till engelska.
+        Svenska versionen av reseguiden finns för närvarande inte. Växla till engelska för att se guiden.
       </div>
 
-      <!-- English guide content -->
+      <!-- English guide -->
       <div id="guide-english">
         <p data-i18n="guide_intro">Explore the surroundings:</p>
 
-        <!-- Clear categories and subcategories -->
+        <!-- Category: Walking (each item is a subcard for visual distinction) -->
         <div class="travel-section">
           <h4 class="category-title" data-i18n="guide_walk_title">Within walking distance</h4>
-          <ul class="info-list">
-            <li>
+          <div class="subcards">
+            <article class="subcard">
               <h5 data-i18n="walk_promenadrunda_label">Promenadrunda</h5>
               <p data-i18n="walk_promenadrunda_text">[Add details here]</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="walk_runsten_label">Runsten</h5>
               <p data-i18n="walk_runsten_text">[Add details here]</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="walk_vastra_label">Västra skällöns naturreservat</h5>
               <p data-i18n="walk_vastra_text">[Add details here]</p>
-            </li>
-          </ul>
+            </article>
+          </div>
         </div>
 
+        <!-- Category: Biking -->
         <div class="travel-section">
           <h4 class="category-title" data-i18n="guide_bike_title">Within biking distance</h4>
-          <ul class="info-list">
-            <li>
+          <div class="subcards">
+            <article class="subcard">
               <h5 data-i18n="bike_andrens_label">Andréns bageri</h5>
               <p data-i18n="bike_andrens_text">A bakery where barely anything has changed for the last 100 years, even the owners are the same family now as when they started. Bread and sweet treats, and children always get a free cinnamon bun with every purchase!</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="bike_uttorp_label">Uttorps naturreservat</h5>
               <p data-i18n="bike_uttorp_text">[Add details here]</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="bike_kvarnen_label">Kvarnen</h5>
               <p data-i18n="bike_kvarnen_text">Once an active windmill for making flour, now renovated to a restaurant and café. You can climb to the top for views — try local dishes like kroppkakor or take a pizza to bring home.</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="bike_skargardskraft_label">Skärgårdskraft</h5>
               <p data-i18n="bike_skargardskraft_text">Museum, second hand shopping, café and local crafts. Learn about Tjurkö's long history of stonecutting.</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="bike_bibbis_label">Bibbis skärgårdscafé</h5>
               <p data-i18n="bike_bibbis_text">Summer café serving classic Swedish treats and lighter foods — and even a wine made locally on Tjurkö.</p>
-            </li>
-          </ul>
+            </article>
+          </div>
         </div>
 
-        <!-- Badplatser is now its own top-level category with a map placeholder for pins -->
+        <!-- Badplatser (own top-level category) with map and pins example -->
         <div class="travel-section" id="badplatser-section">
           <h4 class="category-title" data-i18n="badplatser_title">Badplatser</h4>
-          <p data-i18n="badplatser_intro">Beach/swimming locations — map with pins will be added here (coordinates editable later).</p>
-          <ul class="info-list">
-            <li>
+          <p data-i18n="badplatser_intro">Beach/swimming locations — map with pins below. Coordinates/pins can be edited in script.js.</p>
+
+          <div class="subcards">
+            <article class="subcard">
               <h5 data-i18n="bad_senorens_camping">Senorens camping</h5>
               <p data-i18n="bad_senorens_text">[Add details here]</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="bad_senorens_badplats">Senorens badplats</h5>
               <p data-i18n="bad_senorens_badplats_text">[Add details here]</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="bad_hangnan">Hängnan på Tjurkö</h5>
               <p data-i18n="bad_hangnan_text">[Add details here]</p>
-            </li>
-            <li>
+            </article>
+
+            <article class="subcard">
               <h5 data-i18n="bad_sturko">Sturkö camping</h5>
               <p data-i18n="bad_sturko_text">[Add details here]</p>
-            </li>
-          </ul>
+            </article>
+          </div>
 
-          <!-- Map placeholder: you'll embed Google Maps and add pins/coordinates here later -->
-          <div id="bad-map" class="map-placeholder" aria-hidden="true">
-            Map placeholder — add Google Maps embed and pins here. (I will edit coordinates later.)
+          <!-- Map container for Google Maps; markers are added in script.js -->
+          <div id="bad-map" class="map-placeholder" aria-hidden="false"></div>
+        </div>
+
+        <!-- City, Near, Food categories kept as subcards for clarity -->
+        <div class="travel-section">
+          <h4 class="category-title" data-i18n="guide_city_title">In the city of Karlskrona</h4>
+          <div class="subcards">
+            <article class="subcard">
+              <h5 data-i18n="city_glassiaren_label">Glassiären</h5>
+              <p data-i18n="city_glassiaren_text">Ice cream shop known for generous portions. Expect lines on hot summer days.</p>
+            </article>
+
+            <article class="subcard">
+              <h5 data-i18n="city_marinmuseum_label">Marinmuseum</h5>
+              <p data-i18n="city_marinmuseum_text">[Add details here]</p>
+            </article>
+
+            <article class="subcard">
+              <h5 data-i18n="city_stadsvandring_label">Stadsvandring</h5>
+              <p data-i18n="city_stadsvandring_text">Guided or self-guided walks through Karlskrona's historic centre. [Add meeting points / tips]</p>
+            </article>
           </div>
         </div>
 
         <div class="travel-section">
-          <h4 class="category-title" data-i18n="guide_city_title">In the city of Karlskrona</h4>
-          <ul class="info-list">
-            <li>
-              <h5 data-i18n="city_glassiaren_label">Glassiären</h5>
-              <p data-i18n="city_glassiaren_text">Ice cream shop known for generous portions. Expect lines on hot summer days.</p>
-            </li>
-            <li>
-              <h5 data-i18n="city_marinmuseum_label">Marinmuseum</h5>
-              <p data-i18n="city_marinmuseum_text">[Add details here]</p>
-            </li>
-            <li>
-              <h5 data-i18n="city_stadsvandring_label">Stadsvandring</h5>
-              <p data-i18n="city_stadsvandring_text">Guided or self-guided walks through Karlskrona's historic centre. [Add meeting points / tips]</p>
-            </li>
-            <li>
-              <h5 data-i18n="city_bjorkholmen_label">Promenera på Björkholmen</h5>
-              <p data-i18n="city_bjorkholmen_text">[Add details here]</p>
-            </li>
-            <li>
-              <h5 data-i18n="city_brendaholm_label">Brändaholm och Dragsö</h5>
-              <p data-i18n="city_brendaholm_text">[Add details here]</p>
-            </li>
-            <li>
-              <h5 data-i18n="city_tip_label">Tip</h5>
-              <p data-i18n="city_tip_text">Take the boat from Sturkö to Karlskrona for a scenic route.</p>
-            </li>
-          </ul>
-        </div>
-
-        <div class="travel-section">
           <h4 class="category-title" data-i18n="guide_near_title">Near Karlskrona</h4>
-          <ul class="info-list">
-            <li>
+          <div class="subcards">
+            <article class="subcard">
               <h5 data-i18n="near_aspo_label">Aspö</h5>
               <p data-i18n="near_aspo_text">The only large island not connected by bridge. Ferry from Handelshamnen — frequent and free for foot, bike or car.</p>
-            </li>
-            <li>
+            </article>
+            <article class="subcard">
               <h5 data-i18n="near_kristianopel_label">Kristianopel</h5>
               <p data-i18n="near_kristianopel_text">[Add details here]</p>
-            </li>
-            <li>
+            </article>
+            <article class="subcard">
               <h5 data-i18n="near_yttre_label">Yttre skärgården</h5>
               <p data-i18n="near_yttre_text">Passenger ferry to the outer islands — recommended: Stenshamn or Ungskär. Closest ferry stop: Brofästet on Senoren. Check timetables carefully.</p>
-            </li>
-            <li>
-              <h5 data-i18n="near_kungholm_label">Kungholms fort</h5>
-              <p data-i18n="near_kungholm_text">[Add details here]</p>
-            </li>
-            <li>
-              <h5 data-i18n="near_barnens_label">Barnens gård</h5>
-              <p data-i18n="near_barnens_text">Water park and outdoor playground — great for children aged ~5–12.</p>
-            </li>
-          </ul>
+            </article>
+          </div>
         </div>
 
         <div class="travel-section">
           <h4 class="category-title" data-i18n="guide_food_title">Food to try / Mat att testa</h4>
-          <ul class="info-list">
-            <li>
+          <div class="subcards">
+            <article class="subcard">
               <h5 data-i18n="food_kalles_label">Kalles kaviar med smör och knäckebröd</h5>
               <p data-i18n="food_kalles_text">Smoked cod roe in a tube — try it on crisp bread with butter.</p>
-            </li>
-            <li>
-              <h5 data-i18n="food_saltlakrits_label">Saltlakrits</h5>
-              <p data-i18n="food_saltlakrits_text">[Add details or favourite shops here]</p>
-            </li>
-            <li>
-              <h5 data-i18n="food_sill_label">Inlagd sill</h5>
-              <p data-i18n="food_sill_text">Pickled herring in many flavours — often eaten at holidays.</p>
-            </li>
-            <li>
+            </article>
+            <article class="subcard">
               <h5 data-i18n="food_kroppkakor_label">Kroppkakor</h5>
               <p data-i18n="food_kroppkakor_text">Potato dumplings filled with pork and onion — served with melted butter, cream and lingonberry jam.</p>
-            </li>
-            <li>
+            </article>
+            <article class="subcard">
               <h5 data-i18n="food_princess_label">Prinsesstårta</h5>
               <p data-i18n="food_princess_text">Sponge cake with custard, jam and whipped cream under green marzipan.</p>
-            </li>
-            <li>
-              <h5 data-i18n="food_rak_label">Räkmacka</h5>
-              <p data-i18n="food_rak_text">Open sandwich with mayo, egg and lots of fresh shrimp — often finished with lemon and dill.</p>
-            </li>
-            <li>
-              <h5 data-i18n="food_losgodis_label">Lösgodis</h5>
-              <p data-i18n="food_losgodis_text">Pick-and-mix candy sold by weight — available across stores.</p>
-            </li>
-          </ul>
+            </article>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -286,6 +261,54 @@
   <footer>
     <p>&copy; <span id="year">2025</span> <span data-i18n="footer_name">The Cottage in the Blekinge archipelago</span></p>
   </footer>
+
+  <!-- Google Maps JS API: replace YOUR_API_KEY with your API key -->
+  <script>
+    // Example markers data: edit coordinates and add/remove markers as needed.
+    // Put your actual coordinates here before deploying.
+    window.BAD_MAP_MARKERS = [
+      // { title: 'Senorens camping', lat: 56.1600, lng: 15.5833 },
+      // { title: 'Senorens badplats', lat: 56.1620, lng: 15.5800 },
+      // add more markers...
+    ];
+
+    // initMap is called by the Google Maps script callback
+    function initMap() {
+      const mapEl = document.getElementById('bad-map');
+      if (!mapEl) return;
+
+      // Default center (example) - replace with appropriate default coords
+      const defaultCenter = { lat: 56.16, lng: 15.58 };
+      const map = new google.maps.Map(mapEl, {
+        center: defaultCenter,
+        zoom: 12,
+        mapTypeControl: false,
+        streetViewControl: false
+      });
+
+      // Add markers from window.BAD_MAP_MARKERS
+      (window.BAD_MAP_MARKERS || []).forEach((m) => {
+        const marker = new google.maps.Marker({
+          position: { lat: m.lat, lng: m.lng },
+          map,
+          title: m.title
+        });
+
+        // Example info window
+        const info = new google.maps.InfoWindow({
+          content: `<strong>${m.title}</strong><div>${m.description || ''}</div>`
+        });
+
+        marker.addListener('click', () => info.open(map, marker));
+      });
+
+      // expose map for debugging if needed
+      window.__BAD_MAP = map;
+    }
+  </script>
+
+  <!-- Load Google Maps JS with callback to initMap; replace YOUR_API_KEY -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 
   <script src="script.js"></script>
 </body>
